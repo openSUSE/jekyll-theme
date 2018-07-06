@@ -1,0 +1,3 @@
+[submodule "assets/chameleon"]
+	path = assets/chameleon
+	url = https://github.com/opensuse/chameleon-theme-opensuse
