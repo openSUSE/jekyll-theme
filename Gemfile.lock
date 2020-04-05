@@ -19,8 +19,6 @@ GEM
       safe_yaml (~> 1.0)
     jekyll-archives (2.1.1)
       jekyll (>= 2.4)
-    jekyll-feed (0.9.3)
-      jekyll (~> 3.3)
     jekyll-paginate (1.1.0)
     jekyll-sass-converter (1.5.2)
       sass (~> 3.4)
@@ -50,10 +48,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  jekyll (~> 3.6.3)
+  jekyll
   jekyll-archives
-  jekyll-feed (~> 0.6)
   jekyll-paginate
 
 BUNDLED WITH
-   1.16.1
+   1.17.2

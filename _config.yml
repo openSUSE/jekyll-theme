@@ -1,17 +1,19 @@
 title: openSUSE News
-email: your-email@opensuse.org
+email: admin@opensuse.org
 description: >-
-  openSUSE News site providing newest news from openSUSE Project
+  openSUSE News site providing newest news from the openSUSE Project
 baseurl: ""
-url: ""
+url: "https://news.opensuse.org"
+sourcecode: "https://github.com/openSUSE/news-o-o"
+
+excerpt_separator: <!--more-->
 
 markdown: kramdown
 plugins:
-  - jekyll-feed
   - jekyll-paginate
   - jekyll-archives
-paginate: 6
-paginate_path: '/page:num/'
+paginate: 10
+paginate_path: '/page/:num/'
 permalink: /:year/:month/:day/:title/
 
 jekyll-archives:
@@ -29,3 +31,5 @@ jekyll-archives:
     day: day-archive
     tag: cattag-archive
     category: cattag-archive
+
+exclude: [README.md, Gemfile, Gemfile.lock, vendor]
