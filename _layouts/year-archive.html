@@ -5,10 +5,10 @@ layout: default
 	<li class="breadcrumb-item">
 		<a href="{{ site.baseurl }}/">
 			{% include news.svg %}
-			{{ site.navbar_title }}
+			{{ site.title_short }}
 		</a>
 	</li>
-	<li class="breadcrumb-item active">{{ page.date | date: "%Y" }}</li>
+	<li class="breadcrumb-item active">{{ page.date | date: '%Y' }}</li>
 </ol>
 <div class="container">
 	<div class="col-12 col-lg-9 mx-auto">

@@ -2,11 +2,13 @@
   <div class="container">
     <div class="d-flex justify-content-between">
       <div class="footer-copyright">
-        © 2011–{{ site.time | date: '%Y' }} openSUSE contributors
+        {{ site.copyright }}
       </div>
-      <a href="{{ site.sourcecode }}">
-        Source code
-      </a>
+      <div class="list-inline">
+        {% for link in site.footer_links %}
+        <a class="list-inline-item" href="{{ link.link }}">{{ link.text }}</a>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </footer>

@@ -2,7 +2,7 @@
 
   <a class="navbar-brand" href="/">
     {% include opensuse.svg %}
-    <span class="navbar-title">{{ site.navbar_title }}</span>
+    <span class="navbar-title">{{ site.title_short }}</span>
   </a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#site-menu">
@@ -13,6 +13,8 @@
 
   <div class="collapse navbar-collapse" id="site-menu">
     <ul class="nav navbar-nav mr-auto flex-md-shrink-0">
+      {% for link in site.navbar_links %}
+      {% if link == 'categories' %}
       <!-- Categories Dropdown -->
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="cat-menu-link" role="button" data-toggle="dropdown"
@@ -33,29 +35,21 @@
         </div>
       </li>
 
+      {% else %}
       <li class="nav-item">
-        <a class="nav-link" href="{{ site.sourcecode }}#how-to-submit-a-new-post">
+        <a class="nav-link" href="{{ link.link }}">
           <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-            <path
-              d="M6.94 14.036c-.233.624-.43 1.2-.606 1.783.96-.697 2.101-1.139 3.418-1.304 2.513-.314 4.746-1.973 5.876-4.058l-1.456-1.455 1.413-1.415 1-1.001c.43-.43.915-1.224 1.428-2.368-5.593.867-9.018 4.292-11.074 9.818zM17 9.001L18 10c-1 3-4 6-8 6.5-2.669.334-4.336 2.167-5.002 5.5H3C4 16 6 2 21 2c-1 2.997-1.998 4.996-2.997 5.997L17 9.001z" />
+            <path d="{{ link.icon }}" />
           </svg>
-          New Post
+          {{ link.text }}
         </a>
       </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="{{ '/feed.xml' | prepend: site.baseurl }}">
-          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-            <path
-              d="M3 17a4 4 0 0 1 4 4H3v-4zm0-7c6.075 0 11 4.925 11 11h-2a9 9 0 0 0-9-9v-2zm0-7c9.941 0 18 8.059 18 18h-2c0-8.837-7.163-16-16-16V3z" />
-          </svg>
-          RSS Feed
-        </a>
-      </li>
+      {% endif %}
+      {% endfor %}
     </ul>
 
     <!-- GitHub Search -->
-    <form class="form-inline mr-md-3" action="{{ site.sourcecode }}/search">
+    <form class="form-inline mr-md-3" action="{{ site.github_url }}/search">
       <div class="input-group">
         <input class="form-control" type="search" name="q" placeholder="Search" lang="en">
         <input type="hidden" name="l" value="Markdown">

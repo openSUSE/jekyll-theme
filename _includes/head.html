@@ -55,6 +55,7 @@
   <script defer src="https://static.opensuse.org/chameleon/dist/js/chameleon.js" type="text/javascript"
     charset="utf-8"></script>
 
+  {% if site.piwik %}
   <!-- Piwik -->
   <script type="text/javascript">
     var _paq = _paq || [];
@@ -73,6 +74,7 @@
     })();
   </script>
   <!-- End Piwik Code -->
+  {% endif %}
 
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/feed.xml">
 

@@ -5,15 +5,15 @@ layout: default
 	<li class="breadcrumb-item">
 		<a href="{{ site.baseurl }}/">
 			{% include news.svg %}
-			{{ site.navbar_title }}
+			{{ site.title_short }}
 		</a>
 	</li>
 	<li class="breadcrumb-item"><a
-			href="{{ site.baseurl }}/{{ page.date | date: "%Y" }}">{{ page.date | date: "%Y" }}</a></li>
+			href="{{ site.baseurl }}/{{ page.date | date: '%Y' }}">{{ page.date | date: '%Y' }}</a></li>
 	<li class="breadcrumb-item"><a
-			href="{{ site.baseurl }}/{{ page.date | date: "%Y/%m" }}">{{ page.date | date: "%B" }}</a></li>
+			href="{{ site.baseurl }}/{{ page.date | date: '%Y/%m' }}">{{ page.date | date: '%B' }}</a></li>
 	<li class="breadcrumb-item"><a
-			href="{{ site.baseurl }}/{{ page.date | date: "%Y/%m/%d" }}">{{ page.date | date: "%-d" }}</a></li>
+			href="{{ site.baseurl }}/{{ page.date | date: '%Y/%m/%d' }}">{{ page.date | date: "%d" }}</a></li>
 	<li class="breadcrumb-item active">{{ page.title }}</li>
 </ol>
 <div class="container my-5 article">
