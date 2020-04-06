@@ -55,7 +55,7 @@
   <script defer src="https://static.opensuse.org/chameleon/dist/js/chameleon.js" type="text/javascript"
     charset="utf-8"></script>
 
-  {% if site.piwik %}
+  {% if site.piwik_site_id %}
   <!-- Piwik -->
   <script type="text/javascript">
     var _paq = _paq || [];
@@ -64,7 +64,7 @@
     (function () {
       var u = (("https:" == document.location.protocol) ? "https" : "http") + "://" + "beans.opensuse.org/matomo/";
       _paq.push(["setTrackerUrl", u + "matomo.php"]);
-      _paq.push(["setSiteId", "13"]);
+      _paq.push(["setSiteId", "{{ site.piwik_site_id }}"]);
       var d = document, g = d.createElement("script"), s = d.getElementsByTagName("script")[0];
       g.type = "text/javascript";
       g.defer = true;

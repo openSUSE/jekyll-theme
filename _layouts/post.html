@@ -4,21 +4,37 @@ layout: default
 <ol class="breadcrumb">
 	<li class="breadcrumb-item">
 		<a href="{{ site.baseurl }}/">
-			{% include news.svg %}
+			{% if site.breadcrumb_icon %}
+			<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+				<path d="{{ site.breadcrumb_icon }}" />
+			</svg>
+			{% endif %}
 			{{ site.title_short }}
 		</a>
 	</li>
-	<li class="breadcrumb-item"><a
-			href="{{ site.baseurl }}/{{ page.date | date: '%Y' }}">{{ page.date | date: '%Y' }}</a></li>
-	<li class="breadcrumb-item"><a
-			href="{{ site.baseurl }}/{{ page.date | date: '%Y/%m' }}">{{ page.date | date: '%B' }}</a></li>
-	<li class="breadcrumb-item"><a
-			href="{{ site.baseurl }}/{{ page.date | date: '%Y/%m/%d' }}">{{ page.date | date: "%d" }}</a></li>
-	<li class="breadcrumb-item active">{{ page.title }}</li>
+	<li class="breadcrumb-item">
+		<a href="{{ site.baseurl }}/{{ page.date | date: '%Y' }}">
+			{{ page.date | date: '%Y' }}
+		</a>
+	</li>
+	<li class="breadcrumb-item">
+		<a href="{{ site.baseurl }}/{{ page.date | date: '%Y/%m' }}">
+			{% assign m = page.date | date: '%m' | minus: 1 %}
+			{{ site.messages.months[m] }}
+		</a>
+	</li>
+	<li class="breadcrumb-item">
+		<a href="{{ site.baseurl }}/{{ page.date | date: '%Y/%m/%d' }}">
+			{{ page.date | date: "%d" }}
+		</a>
+	</li>
+	<li class="breadcrumb-item active">
+		{{ page.title }}
+	</li>
 </ol>
 <div class="container my-5 article">
 	<div class="article-header col-md-9 col-12 mx-auto py-3">
-		<small class="text-center d-block text-muted">{{ page.date | date: "%-d. %b %Y" }}</small>
+		<small class="text-center d-block text-muted">{{ page.date | date: site.date_format }}</small>
 		<h1 class="decorated-title">{{ page.title }}</h1>
 		<small class="text-center d-block text-muted pb-3">{{ page.author }}</small>
 		{% if page.image %}
@@ -31,7 +47,7 @@ layout: default
 	</div>
 	<div class="col-md-7 col-12 py-3 mx-auto text-justify">
 		<p>
-			<b>Categories:</b>
+			<b>{{site.messages.categories}}:</b>
 			{% for category in page.categories %}
 			<a href="/category/{{ category | slugify  }}">
 				{{ category }}
@@ -39,7 +55,7 @@ layout: default
 			{% endfor %}
 		</p>
 		<p>
-			<b>Tags:</b>
+			<b>{{site.messages.tags}}:</b>
 			{% for tag in page.tags %}
 			<a href="/tag/{{ tag | slugify  }}">
 				{{ tag }}
@@ -48,7 +64,7 @@ layout: default
 		</p>
 	</div>
 	<div class="col-md-7 col-12 mx-auto text-center">
-		<h5>Share this post:</h5>
+		<h5>{{site.messages.share_this_post}}:</h5>
 		<div class="btn-group" role="group" aria-label="Share article">
 			<a class="twitter-link btn btn-secondary"
 				href="https://twitter.com/intent/tweet?counturl={{ page.url | absolute_url | uri_escape }}&url={{ page.url | absolute_url | uri_escape }}&via=openSUSE">

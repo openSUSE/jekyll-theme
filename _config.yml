@@ -1,3 +1,4 @@
+lang: en
 title: openSUSE News
 title_short: News
 email: opensuse-web@opensuse.org
@@ -6,7 +7,8 @@ copyright: '© 2011–2020 openSUSE contributors'
 baseurl: ""
 url: "https://news.opensuse.org"
 github_url: "https://github.com/openSUSE/news-o-o"
-piwik: false
+
+piwik_site_id: false
 
 excerpt_separator: <!--more-->
 
@@ -21,6 +23,9 @@ navbar_links:
     link: /feed.xml
     text: RSS Feed
 
+breadcrumb_icon: M20 22H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1zm-1-2V4H5v16h14zM7 6h4v4H7V6zm0 6h10v2H7v-2zm0 4h10v2H7v-2zm6-9h4v2h-4V7z
+
+date_format: '%-d. %b %Y'
 
 footer_links:
   -
@@ -33,6 +38,20 @@ footer_links:
 messages:
   categories: 'Categories'
   tags: 'Tags'
+  months:
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+  share_this_post: Share this post
 
 markdown: kramdown
 plugins:

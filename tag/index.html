@@ -4,20 +4,26 @@ layout: default
 <ol class="breadcrumb">
 	<li class="breadcrumb-item">
 		<a href="{{ site.baseurl }}/">
-			{% include news.svg %}
+			{% if site.breadcrumb_icon %}
+			<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+				<path d="{{ site.breadcrumb_icon }}" />
+			</svg>
+			{% endif %}
 			{{ site.title_short }}
 		</a>
 	</li>
-	<li class="breadcrumb-item active">Tag</li>
+	<li class="breadcrumb-item active">
+		{{ site.messages.tags }}
+	</li>
 </ol>
 <div class="container">
 	<div class="col-12 col-lg-9 mx-auto">
 		<div class="row">
 			<ul class="list-group w-100 text-center">
-				{% for category in site.tags %}
-				<a href="/category/{{ category[0] }}">
+				{% for tag in site.tags %}
+				<a href="/tag/{{ tag[0] }}">
 					<li class="list-group-item">
-						<h5>{{ category[0] }}</h5>
+						<h5>{{ tag[0] }}</h5>
 					</li>
 				</a>
 				{% endfor %}

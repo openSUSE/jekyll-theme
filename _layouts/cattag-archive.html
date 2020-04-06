@@ -4,11 +4,23 @@ layout: default
 <ol class="breadcrumb">
 	<li class="breadcrumb-item">
 		<a href="{{ site.baseurl }}/">
-			{% include news.svg %}
+			{% if site.breadcrumb_icon %}
+			<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+				<path d="{{ site.breadcrumb_icon }}" />
+			</svg>
+			{% endif %}
 			{{ site.title_short }}
 		</a>
 	</li>
-	<li class="breadcrumb-item"><a href="{{ site.baseurl }}/category">{{ page.type }}</a></li>
+	<li class="breadcrumb-item">
+		<a href="{{ site.baseurl }}/{{ page.type }}">
+			{% if page.type == 'category' %}
+			{{ site.messages.categories }}
+			{% else %}
+			{{ site.messages.tags }}
+			{% endif %}
+		</a>
+	</li>
 	<li class="breadcrumb-item active">{{ page.title }}</li>
 </ol>
 <div class="container">
