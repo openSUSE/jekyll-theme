@@ -2,20 +2,31 @@
 layout: default
 ---
 <ol class="breadcrumb">
-	<li class="breadcrumb-item"><a href="/"><span class="typcn typcn-news"></span> News</a></li>
-	<li class="breadcrumb-item active text-truncate">Category</li>
+	<li class="breadcrumb-item">
+		<a href="{{ site.baseurl }}/">
+			{% if site.breadcrumb_icon %}
+			<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+				<path d="{{ site.breadcrumb_icon }}" />
+			</svg>
+			{% endif %}
+			{{ site.title_short }}
+		</a>
+	</li>
+	<li class="breadcrumb-item active">
+		{{ site.messages.categories }}
+	</li>
 </ol>
 <div class="container">
 	<div class="col-12 col-lg-9 mx-auto">
 		<div class="row">
-			<ul class="list-group w-100 text-center">
-			{% for category in site.categories %}
-				<a href="/category/{{ category[0] }}">
-					<li class="list-group-item"><h5>{{ category[0] }}</h5></li>
+			<div class="list-group w-100 text-center">
+				{% for category in site.categories %}
+				{% capture category_name %}{{ category | first }}{% endcapture %}
+				<a class="list-group-item" href="/category/{{ category_name | slugify }}">
+					<h4>{{ category_name }}</h4>
 				</a>
-			{% endfor %}
-			</ul>
-			{% include footer-ads.html %}
+				{% endfor %}
+			</div>
 		</div>
 	</div>
 </div>

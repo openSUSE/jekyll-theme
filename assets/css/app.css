@@ -1,3 +1,7 @@
+body {
+  min-height: 100vh;
+}
+
 .article h1, .article h2, .article h3, .article h4, .article h5, .article h6 {
   text-align: center;
   padding-bottom: 1rem;
@@ -7,6 +11,33 @@
   margin-left: auto;
   margin-right: auto;
   display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.h-carousel {
+  height: 35rem;
+  object-fit: cover;
+}
+.blur {
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+}
+
+.carousel-caption {
+  bottom: 0;
+  left: 0;
+  right:0;
+  border-radius: 0;
+  top: 0;
+  background-image: linear-gradient(to right, #173f4f 30%, transparent);
+  text-align: left;
+}
+.carousel-caption * {
+  max-width: 700px;
 }
 
 .decorated-title::before {
@@ -24,37 +55,24 @@
   margin-bottom: 0;
 }
 
-.twitter-link {
-  background-color: white;
+.twitter-link:hover {
   color: #429CD6;
 }
-.twitter-link:hover {
-  background-color: #429CD6;
-  color: white;
-}
-.facebook-link {
-  background-color: white;
+
+.facebook-link:hover {
   color: #3A589E;
 }
-.facebook-link:hover {
-  background-color: #3A589E;
-  color: white;
+
+.telegram-link:hover {
+  color: #179cde;
 }
-.google-plus-link {
-  background-color: white;
-  color: #DF4B37;
+
+.reddit-link:hover {
+  color: #ff4500;
 }
-.google-plus-link:hover {
-  background-color: #DF4B37;
-  color: white;
-}
-.rss-link {
-  background-color: white;
-  color: #FF6B00;
-}
-.rss-link:hover {
-  background-color: #FF6B00;
-  color: white;
+
+.mail-link:hover {
+  color: #35b9ab;
 }
 
 .top-article:after {
@@ -63,7 +81,7 @@
   height: 100%;
   width: 100%;
   background-color: #f8f9fa;
-  opacity: 0.7;
+  opacity: 0.8;
   top: 0;
   left:0;
 }
@@ -75,19 +93,40 @@
   color: black
 }
 
+@media (prefers-color-scheme: dark) {
+  .text-black p {
+   color: white
+  }
+}
+
 .text-black:hover {
   color: #444
 }
 
 .top-article {
-  height: 200px;
   background-size: cover;
   position: relative;
   background-position: 50%;
+  height: 100%;
 }
 
-.h-90px {
-  height: 90px;
+.link_unstyled:hover {
+  text-decoration: none;
+}
+
+.h-96px {
+  height: 72px;
+  overflow-y: hidden;
+}
+
+.breadcrumb{
+  white-space: nowrap;
+  display: block;
+  overflow-x: auto;
+}
+
+.breadcrumb-item{
+  display: inline-block;
 }
 
 pre.highlight {

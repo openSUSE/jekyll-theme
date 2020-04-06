@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}" xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:og="http://ogp.me/ns#">
 
-  {% include head.html %}
+{% include head.html %}
 
-  <body>
+<body class="d-flex flex-column">
 
-    {% include header.html %}
+  {% include header.html %}
 
-    <main class="page-content" aria-label="Content">
-        {{ content }}
-    </main>
+  <main class="page-content flex-fill" aria-label="Content">
+    {{ content }}
+  </main>
 
-    {% include footer.html %}
+  {% include footer.html %}
 
-  </body>
+</body>
 
 </html>
