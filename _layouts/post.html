@@ -33,15 +33,20 @@ layout: default
 	</li>
 </ol>
 <div class="container my-5 article">
-	<div class="article-header col-md-9 col-12 mx-auto py-3">
-		<small class="text-center d-block text-muted">{{ page.date | date: site.date_format }}</small>
+	<header class="article-header col-md-9 col-12 mx-auto py-3">
 		<h1 class="decorated-title">{{ page.title }}</h1>
-		<small class="text-center d-block text-muted pb-3">{{ page.author }}</small>
+		<p class="text-center text-muted">
+			{{ page.date | date: site.date_format }}
+			|
+			{{ page.author }}
+			|
+			{{ page.license | default: site.license | default: 'No License' }}
+		</p>
 		{% if page.image %}
 		<img class="rounded mx-auto d-block h-carousel"
 			src="{% if page.image contains 'http' %}{% else %}{{ site.baseurl }}{% endif %}{{ page.image }}" />
 		{% endif %}
-	</div>
+	</header>
 	<div class="col-md-7 col-12 mx-auto text-justify">
 		{{ page.content }}
 	</div>
