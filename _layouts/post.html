@@ -40,7 +40,7 @@ layout: default
 			|
 			{{ page.author }}
 			|
-			{{ page.license | default: 'No License' }}
+			{{ page.license | default: site.license | default: 'No License' }}
 		</p>
 		{% if page.image %}
 		<img class="rounded mx-auto d-block h-carousel"
