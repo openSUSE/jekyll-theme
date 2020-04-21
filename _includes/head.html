@@ -6,12 +6,13 @@
   <meta name="description"
     content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}" />
 
-  <link rel="stylesheet" href="https://static.opensuse.org/chameleon/dist/css/chameleon.css" />
+  <link rel="stylesheet" href="https://static.opensuse.org/chameleon-2.0/dist/css/chameleon.css" />
   <link rel="stylesheet" href="{{ '/assets/css/app.css' | relative_url }}" />
 
   <link rel='shortcut icon' type='image/x-icon'
-    href='https://static.opensuse.org/chameleon/dist/images/favicons/favicon.ico' />
-  <link color="#73ba25" href="https://static.opensuse.org/chameleon/dist/images/favicons/mask-icon.svg" rel="mask-icon">
+    href='https://static.opensuse.org/chameleon-2.0/dist/images/favicons/favicon.ico' />
+  <link color="#73ba25" href="https://static.opensuse.org/chameleon-2.0/dist/images/favicons/mask-icon.svg"
+    rel="mask-icon">
   <link href="{{ '/manifest.json' | absolute_url }}" rel="manifest">
 
   <meta name="mobile-web-app-capable" content="yes" />
@@ -32,7 +33,7 @@
   <meta property="og:image"
     content="{% if page.image contains '//' %}{{ page.image }}{% else %}{{ page.image | absolute_url }}{% endif %}" />
   {% else %}
-  <meta property="og:image" content="https://static.opensuse.org/chameleon/dist/images/favicons/favicon.png" />
+  <meta property="og:image" content="https://static.opensuse.org/chameleon-2.0/dist/images/favicons/favicon.png" />
   {% endif %}
   <meta property="og:url" content="{{ page.path | replace:'index.html','' | absolute_url }}" />
 
@@ -47,12 +48,12 @@
   <meta name="twitter:image"
     content="{% if page.image contains '//' %}{{ page.image }}{% else %}{{ page.image | absolute_url }}{% endif %}" />
   {% else %}
-  <meta name="twitter:image" content="https://static.opensuse.org/chameleon/dist/images/favicons/favicon.png" />
+  <meta name="twitter:image" content="https://static.opensuse.org/chameleon-2.0/dist/images/favicons/favicon.png" />
   {% endif %}
 
   <meta name="theme-color" content="#73ba25" />
 
-  <script defer src="https://static.opensuse.org/chameleon/dist/js/chameleon.js" type="text/javascript"
+  <script defer src="https://static.opensuse.org/chameleon-2.0/dist/js/chameleon.js" type="text/javascript"
     charset="utf-8"></script>
 
   {% if site.piwik_site_id %}
