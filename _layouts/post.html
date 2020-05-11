@@ -112,6 +112,57 @@ layout: default
 						d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 4.238l-7.928 7.1L4 7.216V19h16V7.238zM4.511 5l7.55 6.662L19.502 5H4.511z" />
 				</svg>
 			</a>
+
+<script>
+// The actual function. Set this as an onclick function for your "Share on Mastodon" button
+function share_on_mastodon() {
+        // Prefill the form with the user's previously-specified Mastodon instance, if applicable
+        var default_url = localStorage['mastodon_instance']; 
+
+        // If there is no cached instance/domain, then insert a "https://" with no domain at the start of the prompt. 
+        if (!default_url)
+                default_url = "https://"; 
+
+        var instance = prompt("Enter your instance's address: (ex: https://linuxrocks.online)", default_url);
+        if (instance) { 
+                // Handle URL formats
+                if ( !instance.startsWith("https://") && !instance.startsWith("http://") )
+                        instance = "https://" + instance;  
+
+                // Get the current page's URL
+                var url   = window.location.href;
+        
+                // Get the page title from the og:title meta tag, if it exists.
+                var title = document.querySelectorAll('meta[property="og:title"]')[0].getAttribute("content"); 
+        
+                // Otherwise, use the <title> tag as the title
+                if (!title)    var title = document.getElementsByTagName("title")[0].innerHTML;
+        
+                // Handle slash
+                if ( !instance.endsWith("/") )
+                        instance = instance + "/"; 
+
+                // Cache the instance/domain for future requests
+                localStorage['mastodon_instance'] = instance; 
+
+                // Create the Share URL
+                // https://someinstance.tld/share?text=URL%20encoded%20text
+                mastodon_url = instance + "share?text=" + encodeURIComponent(title + "\n\n" + url + "\n\n");
+
+                // Open a new window at the share location   
+                window.open(mastodon_url, '_blank');
+        }
+}
+</script>
+
+			<a class="mastodon-link btn btn-secondary"
+				href="" onclick="share_on_mastodon()">
+				<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+
+					<path
+						d="m 8.976339,4.6446636 c 0.949828,0.025469 1.888413,0.4504196 2.466639,1.3480464 L 12.002274,6.9427957 12.559777,5.99271 c 1.161041,-1.8053497 3.763258,-1.6927017 5.001395,-0.2957815 1.141767,1.3290022 0.887345,2.1867612 0.887345,8.1241305 v 0.0018 H 16.20237 V 8.6565367 c 0,-2.418453 -3.083298,-2.511856 -3.083298,0.335218 V 11.985421 H 10.887267 V 8.9917547 c 0,-2.847074 -3.081504,-2.755464 -3.081504,-0.337011 V 13.821059 H 5.554238 c 0,-5.9419583 -0.249833,-6.8052243 0.887345,-8.1241305 C 7.06524,4.9938794 8.026512,4.6191941 8.976339,4.6446636 Z M 11.943911,0.99981197 C 9.1716407,1.011055 6.4191364,1.3628789 4.9868805,2.0232495 c 0,0 -3.0820312,1.4034764 -3.0820312,6.1816406 0,5.6877239 -0.004,12.8296209 5.1054687,14.2109379 1.9567895,0.525911 3.639322,0.640515 4.992187,0.5625 2.455165,-0.138591 3.669922,-0.892579 3.669922,-0.892578 l -0.08203,-1.8125 c 0,0 -1.591942,0.560341 -3.5625,0.496093 -1.9522,-0.06883 -4.009759,-0.21657 -4.330078,-2.654297 -0.02937,-0.226701 -0.043891,-0.455056 -0.042969,-0.683593 4.13661,1.027039 7.665667,0.447559 8.636719,0.330078 2.711237,-0.329497 5.070048,-2.030118 5.371093,-3.583985 0.471759,-2.448741 0.431641,-5.9726559 0.431641,-5.9726559 0,-4.7781642 -3.074219,-6.1816406 -3.074219,-6.1816406 -1.510275,-0.7053438 -4.3039,-1.0346807 -7.076173,-1.02343753 z m 0.0098,2.27929693 c 2.585613,-0.010486 5.320992,0.4440436 6.101563,0.8085937 a 2.2787761,2.2787761 0 0 0 0.01953,0.00781 c 0,0 0.239092,0.077601 0.71289,0.6621094 0.473799,0.5845086 1.027344,1.5468479 1.027344,3.4472656 a 2.2787761,2.2787761 0 0 0 0,0.025391 c 0,0 -2.23e-4,3.4891834 -0.390625,5.5156254 0.03008,-0.158015 -0.182913,0.360295 -0.830078,0.802734 -0.648713,0.443498 -1.60999,0.833514 -2.578125,0.951172 -1.205251,0.145894 -4.165747,0.62612 -7.8124996,-0.279297 a 2.2787761,2.2787761 0 0 0 -2.828158,2.201174 c -8.678e-4,0.215108 0.023355,0.427748 0.041016,0.640625 C 5.1849811,17.555907 4.9320926,17.123455 4.7583649,16.396296 4.2166741,14.128983 4.1841462,11.049286 4.1841462,8.2048901 4.1841462,6.3057142 4.7382973,5.3442628 5.213443,4.7595776 5.6885888,4.1748924 5.9302399,4.0974682 5.9302399,4.0974682 a 2.2787761,2.2787761 0 0 0 0.00977,-0.00586 c 0.7036768,-0.3244445 3.4280577,-0.802014 6.0136721,-0.8125 z" />
+				</svg>
+			</a>
 		</div>
 	</div>
 </div>

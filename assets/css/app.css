@@ -71,6 +71,10 @@ body {
   color: #ff4500;
 }
 
+.mastodon-link:hover {
+  color: #3088d4;
+}
+
 .mail-link:hover {
   color: #35b9ab;
 }
