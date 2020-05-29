@@ -12,6 +12,23 @@ piwik_site_id: false
 
 excerpt_separator: <!--more-->
 
+defaults:
+  -
+    scope:
+      path: "*.html"
+    values:
+      layout: "default"
+  -
+    scope:
+      path: "*.md"
+    values:
+      layout: "markdown"
+  -
+    scope:
+      path: "*.markdown"
+    values:
+      layout: "markdown"
+
 navbar_links:
   - categories
   -
