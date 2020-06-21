@@ -37,8 +37,8 @@
   <meta property="og:site_name" content="{{ site.title | escape }}" />
   <meta property="og:title" content="{{ page.title | default: site.title | escape }}" />
   <meta property="og:description"
-    content="{{ page.content | default: site.description | strip_html | normalize_whitespace | truncatewords: 50 }}" />
-  <meta property="og:url" content="{{ page.path | replace:'index.html','' | absolute_url }}" />
+    content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}" />
+  <meta property=" og:url" content="{{ page.path | replace:'index.html','' | absolute_url }}" />
   {% if page.layout == 'post' %}
   <meta property="og:type" content="article" />
   <meta property="og:article:author" content="{{ page.author }}" />
@@ -53,10 +53,10 @@
 
   <!-- twitter meta -->
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title"
-    content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}" />
+  <meta name="twitter:title" content="{{ page.title | default: site.title | escape }}" />
   {% if page.layout == 'post' %}
-  <meta name="twitter:description" content="{{ page.content | strip_html | truncate: 190 }}" />
+  <meta name="twitter:description"
+    content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}" />
   {% endif %}
   <meta name="twitter:url" content="{{ page.url | replace:'index.html','' | absolute_url }}" />
   {% if page.image %}
