@@ -57,7 +57,7 @@
           {% if child == 'divider' %}
           <div class="dropdown-divider"></div>
           {% else %}
-          <a class="dropdown-item" href="{{ child.link | prefix_locale }}">{{ child.text }}</a>
+          <a class="dropdown-item" href="{{ child.link | prefix_locale }}">{{ child.icon }} {{ child.text }}</a>
           {% endif %}
           {% endfor %}
         </div>
