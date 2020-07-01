@@ -78,7 +78,7 @@
 
     {% if site.search_provider == 'github' %}
     <!-- GitHub Search -->
-    <form class="form-inline mr-md-3" action="https://github.com/openSUSE/{{ site.search_github_repo }}/search">
+    <form class="form-inline mr-md-3" action="https://github.com/{{ site.search_github_repo }}/search">
       <div class="input-group">
         <input class="form-control" type="search" name="q" placeholder="Search" lang="en">
         <input type="hidden" name="l" value="Markdown">

@@ -53,7 +53,7 @@ defaults:
 #         text: More...
 
 # search_provider: github
-# search_github_repo: news-o-o
+# search_github_repo: openSUSE/news-o-o
 
 # search_provider: duckduckgo
 # search_site: news.opensuse.org
