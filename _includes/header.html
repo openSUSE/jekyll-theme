@@ -44,6 +44,25 @@
         </div>
       </li>
 
+      {% elsif link.children %}
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          {{ link.icon }}
+          {{ link.text }}
+        </a>
+        <div class="dropdown-menu">
+          {% for child in link.children %}
+          {% if child == 'divider' %}
+          <div class="dropdown-divider"></div>
+          {% else %}
+          <a class="dropdown-item" href="{{ child.link | prefix_locale }}">{{ child.text }}</a>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </li>
+
       {% else %}
 
       <li class="nav-item{%if link.link == page.url%} active{%endif%}">
