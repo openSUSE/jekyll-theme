@@ -6,7 +6,6 @@ description: ""
 copyright: '© 2020 openSUSE contributors'
 baseurl: ""
 url: ""
-github_url: ""
 
 piwik_site_id: false
 
@@ -52,6 +51,12 @@ defaults:
 #       -
 #         link: /more/
 #         text: More...
+
+# search_provider: github
+# search_github_repo: news-o-o
+
+# search_provider: duckduckgo
+# search_site: news.opensuse.org
 
 # navbar_class: navbar-expand-md sticky-top
 # enable_feed: true
