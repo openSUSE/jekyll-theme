@@ -1,21 +1,20 @@
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>
     {% if page.title %}{{ page.title | escape }} - {% endif %}{{ site.title | escape }}
   </title>
 
   <meta name="description"
-    content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}" />
+    content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
   <!-- stylesheet -->
-  <link rel="stylesheet" href="https://static.opensuse.org/chameleon-3.0/dist/css/chameleon.css" />
-  <link rel="stylesheet" href="{{ '/assets/css/app.css' | relative_url }}" />
+  <link rel="stylesheet" href="https://static.opensuse.org/chameleon-3.0/dist/css/chameleon.css">
+  <link rel="stylesheet" href="{{ '/assets/css/app.css' | relative_url }}">
 
   <!-- favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="https://static.opensuse.org/favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="https://static.opensuse.org/favicon.ico">
   <link rel="icon" href="https://static.opensuse.org/favicon-32.png" sizes="32x32">
   <link rel="icon" href="https://static.opensuse.org/favicon-48.png" sizes="48x48">
   <link rel="icon" href="https://static.opensuse.org/favicon-64.png" sizes="64x64">
@@ -26,43 +25,43 @@
   <!-- apple-touch-icon -->
   <link rel="apple-touch-icon" href="https://static.opensuse.org/favicon-144.png" sizes="144x144">
   <link rel="apple-touch-icon" href="https://static.opensuse.org/favicon-192.png" sizes="192x192">
-  <link rel="mask-icon" href="https://static.opensuse.org/mask-icon.svg" color="#73ba25" />
+  <link rel="mask-icon" href="https://static.opensuse.org/mask-icon.svg" color="#73ba25">
 
   <!-- mobile web app data -->
-  <link href="{{ '/manifest.json' | absolute_url }}" rel="manifest" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="theme-color" content="#73ba25" />
+  <link href="{{ '/manifest.json' | absolute_url }}" rel="manifest">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#73ba25">
 
   <!-- open graph meta -->
-  <meta property="og:site_name" content="{{ site.title | escape }}" />
-  <meta property="og:title" content="{{ page.title | default: site.title | escape }}" />
+  <meta property="og:site_name" content="{{ site.title | escape }}">
+  <meta property="og:title" content="{{ page.title | default: site.title | escape }}">
   <meta property="og:description"
-    content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}" />
-  <meta property=" og:url" content="{{ page.path | replace:'index.html','' | absolute_url }}" />
+    content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <meta property=" og:url" content="{{ page.path | replace:'index.html','' | absolute_url }}">
   {% if page.layout == 'post' %}
-  <meta property="og:type" content="article" />
-  <meta property="og:article:author" content="{{ page.author }}" />
-  <meta property="og:article:published_time" content="{{ page.date | date_to_xmlschema }}" />
+  <meta property="og:type" content="article">
+  <meta property="og:article:author" content="{{ page.author | escape }}">
+  <meta property="og:article:published_time" content="{{ page.date | date_to_xmlschema }}">
   {% for tag in page.tags %}
-  <meta property="og:article:tag" content="{{ tag }}" />
+  <meta property="og:article:tag" content="{{ tag | escape }}">
   {% endfor %} {% endif %} {% if page.image %}
-  <meta property="og:image" content="{{ page.image | absolute_url }}" />
+  <meta property="og:image" content="{{ page.image | absolute_url }}">
   {% else %}
-  <meta property="og:image" content="https://static.opensuse.org/favicon-192.png" />
+  <meta property="og:image" content="https://static.opensuse.org/favicon-192.png">
   {% endif %}
 
   <!-- twitter meta -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="{{ page.title | default: site.title | escape }}" />
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ page.title | default: site.title | escape }}">
   {% if page.layout == 'post' %}
   <meta name="twitter:description"
-    content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}" />
+    content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
   {% endif %}
-  <meta name="twitter:url" content="{{ page.url | replace:'index.html','' | absolute_url }}" />
+  <meta name="twitter:url" content="{{ page.url | replace:'index.html','' | absolute_url }}">
   {% if page.image %}
-  <meta name="twitter:image" content="{{ page.image | absolute_url }}" />
+  <meta name="twitter:image" content="{{ page.image | absolute_url }}">
   {% else %}
-  <meta name="twitter:image" content="https://static.opensuse.org/favicon-192.png" />
+  <meta name="twitter:image" content="https://static.opensuse.org/favicon-192.png">
   {% endif %}
 
   <!-- javascript -->
@@ -97,8 +96,8 @@
   {% endif %}
 
   {% if site.enable_feed %}
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/feed/" />
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/feed/">
   {% endif %}
 
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}" />
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 </head>
