@@ -1,4 +1,3 @@
-lang: en
 title: ""
 title_short: ""
 email: ""
@@ -6,6 +5,7 @@ description: ""
 copyright: '© 2020 openSUSE contributors'
 baseurl: ""
 url: ""
+weblate_url: "https://l10n.opensuse.org/"
 
 piwik_site_id: false
 
@@ -101,6 +101,7 @@ markdown: kramdown
 # paginate_path: '/page/:num/'
 # permalink: /:year/:month/:day/:title/
 
+# WARNING: jekyll-archives can not be used with jekyll-locale!!!
 # jekyll-archives:
 #   enabled: all
 #   layout: 'archive'
@@ -116,5 +117,23 @@ markdown: kramdown
 #     day: day-archive
 #     tag: cattag-archive
 #     category: cattag-archive
+
+# WARNING: jekyll-locale can not be used with jekyll-archives!!!
+localization:
+  mode       : auto
+  locale     : en
+  locales_set:
+    en:
+      name: English
+    es:
+      name: Español
+    fi:
+      name: Suomi
+    fr:
+      name: Français
+    zh-CN:
+      name: 简体中文
+    zh-TW:
+      name: 繁體中文
 
 exclude: [README.md, Gemfile, Gemfile.lock, vendor]

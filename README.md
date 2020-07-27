@@ -6,10 +6,16 @@ Simple and readable openSUSE jekyll theme
 
 ## Development
 
+### How to set up environment?
+
+```bash
+sudo zypper in ruby ruby-devel
+bundle install --path vendor/bundle
+```
+
 ### How to build?
 
 ```bash
-bundle install --path vendor/bundle
 bundle exec jekyll build
 ```
 
@@ -18,7 +24,6 @@ Resulting site will be in `_site` directory.
 ### How to serve locally?
 
 ```bash
-bundle install --path vendor/bundle
 bundle exec jekyll serve
 ```
 

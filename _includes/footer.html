@@ -2,11 +2,13 @@
   <div class="container">
     <div class="d-flex justify-content-between">
       <div class="footer-copyright">
-        {{ site.copyright }}
+        {{ locale.site_copyright | default: site.copyright }}
       </div>
       <div class="list-inline">
         {% for link in site.footer_links %}
-        <a class="list-inline-item" href="{{ link.link }}">{{ link.text }}</a>
+        <a class="list-inline-item" href="{{ link.link | prefix_locale }}">
+          {{ locale[link.text] | default: link.text }}
+        </a>
         {% endfor %}
       </div>
     </div>

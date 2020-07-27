@@ -1,9 +1,9 @@
 <nav class="navbar noprint {{ site.navbar_class | default: 'navbar-expand-md' }}">
 
-  <a class="navbar-brand" href="/">
+  <a class="navbar-brand" href="{{'/' | prefix_locale }}">
     <img src="https://static.opensuse.org/favicon.svg" class="d-inline-block align-top" alt="openSUSE" title="openSUSE"
       width="30" height="30">
-    <span class="navbar-title">{{ site.title_short }}</span>
+    <span class="navbar-title">{{ locale.site_title_short | default: site.title_short }}</span>
   </a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">
@@ -32,7 +32,7 @@
             <path
               d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z" />
           </svg>
-          {{ site.messages.categories }}
+          {{ locale.categories }}
         </a>
         <div class="dropdown-menu" aria-labelledby="cat-menu-link">
           {% for category in site.categories %}
@@ -44,20 +44,58 @@
         </div>
       </li>
 
+      {% elsif link == 'locales' %}
+
+      <!-- Locales Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="locale-menu-link" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <svg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 512 512'>
+            <line x1='48' y1='112' x2='336' y2='112'
+              style='fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+            <line x1='192' y1='64' x2='192' y2='112'
+              style='fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+            <polyline points='272 448 368 224 464 448'
+              style='fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+            <line x1='301.5' y1='384' x2='434.5' y2='384'
+              style='fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+            <path d='M281.3,112S257,206,199,277,80,384,80,384'
+              style='fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+            <path d='M256,336s-35-27-72-75-56-85-56-85'
+              style='fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+          </svg>
+          {{ page.locale.name }}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="cat-menu-link">
+          {% for ref in page.locale_siblings %}
+          <a class="dropdown-item" href="{{ ref.url | relative_url }}">
+            {{ ref.locale.name }}
+          </a>
+          {% endfor %}
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{ site.weblate_url }}">
+            {{ locale.translate }}
+          </a>
+        </div>
+      </li>
+
       {% elsif link.children %}
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">
           {{ link.icon }}
-          {{ link.text }}
+          {{ locale[link.text] | default: link.text }}
         </a>
         <div class="dropdown-menu">
           {% for child in link.children %}
           {% if child == 'divider' %}
           <div class="dropdown-divider"></div>
           {% else %}
-          <a class="dropdown-item" href="{{ child.link | prefix_locale }}">{{ child.icon }} {{ child.text }}</a>
+          <a class="dropdown-item" href="{{ child.link | prefix_locale }}">
+            {{ child.icon }}
+            {{ locale[child.text] | default: child.text }}
+          </a>
           {% endif %}
           {% endfor %}
         </div>
@@ -66,9 +104,9 @@
       {% else %}
 
       <li class="nav-item{%if link.link == page.url%} active{%endif%}">
-        <a class="nav-link" href="{{ link.link }}">
+        <a class="nav-link" href="{{ link.link | prefix_locale }}">
           {{ link.icon }}
-          {{ link.text }}
+          {{ locale[link.text] | default: link.text }}
         </a>
       </li>
       {% endif %}
@@ -80,7 +118,7 @@
     <!-- GitHub Search -->
     <form class="form-inline mr-md-3" action="https://github.com/{{ site.search_github_repo }}/search">
       <div class="input-group">
-        <input class="form-control" type="search" name="q" placeholder="Search" lang="en">
+        <input class="form-control" type="search" name="q" placeholder="{{ locale.search }}" lang="en">
         <input type="hidden" name="l" value="Markdown">
         <input type="hidden" name="s" value="indexed">
         <div class="input-group-append">
@@ -101,7 +139,7 @@
     <!-- DuckDuckGo Search -->
     <form id="ddg-form" class="form-inline mr-md-3" action="https://duckduckgo.com/">
       <div class="input-group">
-        <input id="ddg-input" class="form-control" type="search" name="q" placeholder="Search" lang="en">
+        <input id="ddg-input" class="form-control" type="search" name="q" placeholder="{{ locale.search }}" lang="en">
         <div class="input-group-append">
           <button class="btn btn-secondary" type="submit">
             <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
