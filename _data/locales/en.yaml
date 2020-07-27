@@ -1,0 +1,68 @@
+site_title: openSUSE News
+site_title_short: News
+site_description: Latest news from the openSUSE Project
+site_copyright: © 2011-2020 openSUSE contributors
+
+search: Search
+categories: Categories
+tags: Tags
+new_post: New Post
+translate: Translate
+subscribe: Subscribe
+
+source_code: Source Code
+privacy: Privacy
+
+share_this_post: Share this post
+
+locale_date:
+  date:
+    day_names:
+      - Sunday
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+    month_names:
+      - ''
+      - January
+      - February
+      - March
+      - April
+      - May
+      - June
+      - July
+      - August
+      - September
+      - October
+      - November
+      - December
+    abbr_day_names:
+      - Sun
+      - Mon
+      - Tue
+      - Wed
+      - Thu
+      - Fri
+      - Sat
+    abbr_month_names:
+      - ''
+      - Jan
+      - Feb
+      - Mar
+      - Apr
+      - May
+      - Jun
+      - Jul
+      - Aug
+      - Sep
+      - Oct
+      - Nov
+      - Dec
+  time:
+    am: "am"
+    pm: "pm"
+    formats:
+      default: "%B %d, %Y"

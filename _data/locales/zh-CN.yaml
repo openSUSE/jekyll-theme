@@ -1,0 +1,68 @@
+site_title: openSUSE 新闻
+site_title_short: 新闻
+site_description: openSUSE 项目的最新动态
+site_copyright: © 2011-2020 openSUSE 贡献者
+
+search: 搜索
+categories: 分类
+tags: 标签
+new_post: 投稿
+translate: 翻译
+subscribe: 订阅
+
+source_code: 源码
+privacy: 隐私
+
+share_this_post: 分享文章
+
+locale_date:
+  date:
+    day_names:
+      - 星期日
+      - 星期一
+      - 星期二
+      - 星期三
+      - 星期四
+      - 星期五
+      - 星期六
+    month_names:
+      - ''
+      - 一月
+      - 二月
+      - 三月
+      - 四月
+      - 五月
+      - 六月
+      - 七月
+      - 八月
+      - 九月
+      - 十月
+      - 十一月
+      - 十二月
+    abbr_day_names:
+      - 周日
+      - 周一
+      - 周二
+      - 周三
+      - 周四
+      - 周五
+      - 周六
+    abbr_month_names:
+      - ''
+      - 一月
+      - 二月
+      - 三月
+      - 四月
+      - 五月
+      - 六月
+      - 七月
+      - 八月
+      - 九月
+      - 十月
+      - 十一月
+      - 十二月
+  time:
+    am: "上午"
+    pm: "下午"
+    formats:
+      default: "%Y 年%b %-d 日"

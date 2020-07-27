@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/ashmaroli/jekyll-locale.git
+  revision: dc5c46cadd09e3f13fb4c71b43aa082d90cca6a1
+  branch: master
+  specs:
+    jekyll-locale (0.5.1)
+      jekyll (>= 3.8, < 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -66,4 +74,5 @@ PLATFORMS
 DEPENDENCIES
   jekyll
   jekyll-archives
+  jekyll-locale!
   jekyll-paginate
