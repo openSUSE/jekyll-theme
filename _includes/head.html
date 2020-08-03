@@ -67,7 +67,8 @@
   {% endif %}
 
   <!-- javascript -->
-  <script defer src="https://static.opensuse.org/chameleon-3.0/dist/js/jquery.slim.js"></script>
+  <script defer
+    src="https://static.opensuse.org/chameleon-3.0/dist/js/jquery{{ site.jquery_full ? '' : '.slim' }}.js"></script>
   <script defer src="https://static.opensuse.org/chameleon-3.0/dist/js/bootstrap.bundle.js"></script>
   <script defer src="https://static.opensuse.org/chameleon-3.0/dist/js/chameleon.js"></script>
 
@@ -102,4 +103,6 @@
   {% endif %}
 
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+
+  {% include head-extra.html %}
 </head>
