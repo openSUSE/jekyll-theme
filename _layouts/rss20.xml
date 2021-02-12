@@ -14,7 +14,6 @@
       <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
       <link>{{ site.url }}{{ post.url }}</link>
       <description>{{ post.excerpt | strip_html | xml_escape | truncatewords: 50 }}</description>
-      <enclosure url="{{ post.image }}"/>
       <content:encoded>{{ post.content | xml_escape }}</content:encoded>
     </item>
 {% endfor %}
