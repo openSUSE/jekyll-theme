@@ -10,7 +10,8 @@ Simple and readable openSUSE jekyll theme
 
 ```bash
 sudo zypper in ruby ruby-devel
-bundle install --path vendor/bundle
+bundle config set path 'vendor/bundle'
+bundle install
 ```
 
 ### How to build?
