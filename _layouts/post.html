@@ -46,7 +46,7 @@ layout: default
 			alt="{{ page.title | escape }}">
 		{% endif %}
 	</header>
-	<div class="col-md-7 col-12 mx-auto text-justify">
+	<div class="col-md-7 col-12 mx-auto text-justify" {% if page.locale.rtl %} style="direction:rtl; text-align: right;" {% endif %}>
 		{{ page.content }}
 	</div>
 	<div class="col-md-7 col-12 py-3 mx-auto text-justify">
