@@ -9,7 +9,7 @@ html[lang^=sam] body,
 html[lang^=men] body,
 html[lang^=man] body,
 html[lang^=wo] body,
-html[lang^=fa] body
+html[lang^=fa] body,
 html[lang^=ff] body {
  direction:rtl;
  text-align: right;
