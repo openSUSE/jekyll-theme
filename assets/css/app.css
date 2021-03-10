@@ -2,6 +2,19 @@ body {
   min-height: 100vh;
 }
 
+html[lang^=ar] body,
+html[lang^=he] body,
+html[lang^=sy] body,
+html[lang^=sam] body,
+html[lang^=men] body,
+html[lang^=man] body,
+html[lang^=wo] body,
+html[lang^=fa] body
+html[lang^=ff] body {
+ direction:rtl;
+ text-align: right;
+}
+
 .article h1, .article h2, .article h3, .article h4, .article h5, .article h6 {
   text-align: center;
   padding-bottom: 1rem;
