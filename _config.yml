@@ -128,15 +128,5 @@ localization:
   locales_set:
     en:
       name: English
-    es:
-      name: Español
-    fi:
-      name: Suomi
-    fr:
-      name: Français
-    zh-CN:
-      name: 简体中文
-    zh-TW:
-      name: 繁體中文
 
 exclude: [README.md, Gemfile, Gemfile.lock, vendor]
