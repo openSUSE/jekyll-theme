@@ -32,7 +32,11 @@
   <!-- mobile web app data -->
   <link href="{{ '/manifest.json' | absolute_url }}" rel="manifest">
   <meta name="mobile-web-app-capable" content="yes">
+  {% if page.color %}
+  <meta name="theme-color" content="{{ page.color }}">
+  {% else %}
   <meta name="theme-color" content="#73ba25">
+  {% endif %}
 
   <!-- open graph meta -->
   <meta property="og:site_name" content="{{ locale.site_title | default: site.title | escape }}">
@@ -46,22 +50,28 @@
   <meta property="og:article:published_time" content="{{ page.date | date_to_xmlschema }}">
   {% for tag in page.tags %}
   <meta property="og:article:tag" content="{{ tag | escape }}">
-  {% endfor %} {% endif %} {% if page.image %}
+  {% endfor %} {% endif %} {% if page.icon %}
+  <meta property="og:image" content="{{ page.icon | absolute_url }}">
+  {% elsif page.image %}
   <meta property="og:image" content="{{ page.image | absolute_url }}">
   {% else %}
   <meta property="og:image" content="https://static.opensuse.org/favicon-192.png">
   {% endif %}
 
   <!-- twitter meta -->
+  {% if page.image %}
+  <meta name="twitter:card" content="summary_large_image">
+  {% else %}
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="{{ page.title | default: locale.site_title | default: site.title | escape }}">
-  {% if page.layout == 'post' %}
-  <meta name="twitter:description"
-    content="{{ page.excerpt | default: locale.site_description | default: site.description| strip_html | normalize_whitespace | truncate: 160 | escape }}">
   {% endif %}
+  <meta name="twitter:title" content="{{ page.title | default: locale.site_title | default: site.title | escape }}">
+  <meta name="twitter:description"
+    content="{{ page.excerpt | default: locale.site_description | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
   <meta name="twitter:url" content="{{ page.url | replace:'index.html','' | absolute_url }}">
   {% if page.image %}
   <meta name="twitter:image" content="{{ page.image | absolute_url }}">
+  {% elsif page.icon %}
+  <meta name="twitter:image" content="{{ page.icon | absolute_url }}">
   {% else %}
   <meta name="twitter:image" content="https://static.opensuse.org/favicon-192.png">
   {% endif %}
