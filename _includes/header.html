@@ -161,6 +161,8 @@
         </script>
       </div>
     </form>
+    {% elsif site.search_provider == 'custom' %}
+      {% include custom_search.html %}
     {% endif %}
   </div>
 
