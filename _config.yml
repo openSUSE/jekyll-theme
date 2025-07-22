@@ -122,11 +122,11 @@ markdown: kramdown
 #     category: cattag-archive
 
 # WARNING: jekyll-locale can not be used with jekyll-archives!!!
-localization:
-  mode       : auto
-  locale     : en
-  locales_set:
-    en:
-      name: English
+# localization:
+#   mode       : auto
+#   locale     : en
+#   locales_set:
+#     en:
+#       name: English
 
 exclude: [README.md, Gemfile, Gemfile.lock, vendor]
