@@ -12,21 +12,21 @@
     content="{{ page.excerpt | default: locale.site_description | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
   <!-- stylesheet -->
-  <link rel="stylesheet" href="https://static.opensuse.org/chameleon-3.0/dist/css/chameleon.css">
+  <link rel="stylesheet" href="https://static.opensuse.org/chameleon-4.0/dist/css/chameleon.css">
   <link rel="stylesheet" href="{{ '/assets/css/app.css' | relative_url }}">
 
   <!-- favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="https://static.opensuse.org/favicon.ico">
-  <link rel="icon" href="https://static.opensuse.org/favicon-32.png" sizes="32x32">
-  <link rel="icon" href="https://static.opensuse.org/favicon-48.png" sizes="48x48">
-  <link rel="icon" href="https://static.opensuse.org/favicon-64.png" sizes="64x64">
-  <link rel="icon" href="https://static.opensuse.org/favicon-96.png" sizes="96x96">
-  <link rel="icon" href="https://static.opensuse.org/favicon-144.png" sizes="144x144">
-  <link rel="icon" href="https://static.opensuse.org/favicon-192.png" sizes="192x192">
+  <link rel="icon" href="https://static.opensuse.org/chameleon-4.0/dist/images/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="https://static.opensuse.org/chameleon-4.0/dist/images/favicon-48.png" sizes="48x48">
+  <link rel="icon" href="https://static.opensuse.org/chameleon-4.0/dist/images/favicon-64.png" sizes="64x64">
+  <link rel="icon" href="https://static.opensuse.org/chameleon-4.0/dist/images/favicon-96.png" sizes="96x96">
+  <link rel="icon" href="https://static.opensuse.org/chameleon-4.0/dist/images/favicon-144.png" sizes="144x144">
+  <link rel="icon" href="https://static.opensuse.org/chameleon-4.0/dist/images/favicon-192.png" sizes="192x192">
 
   <!-- apple-touch-icon -->
-  <link rel="apple-touch-icon" href="https://static.opensuse.org/favicon-144.png" sizes="144x144">
-  <link rel="apple-touch-icon" href="https://static.opensuse.org/favicon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="https://static.opensuse.org/chameleon-4.0/dist/images/favicon-144.png" sizes="144x144">
+  <link rel="apple-touch-icon" href="https://static.opensuse.org/chameleon-4.0/dist/images/favicon-192.png" sizes="192x192">
   <link rel="mask-icon" href="https://static.opensuse.org/mask-icon.svg" color="#73ba25">
 
   <!-- mobile web app data -->
@@ -35,7 +35,7 @@
   {% if page.color %}
   <meta name="theme-color" content="{{ page.color }}">
   {% else %}
-  <meta name="theme-color" content="#73ba25">
+  <meta name="theme-color" content="#42cd42">
   {% endif %}
 
   <!-- open graph meta -->
@@ -55,7 +55,7 @@
   {% elsif page.image %}
   <meta property="og:image" content="{{ page.image | absolute_url }}">
   {% else %}
-  <meta property="og:image" content="https://static.opensuse.org/favicon-192.png">
+  <meta property="og:image" content="https://static.opensuse.org/chameleon-4.0/dist/images/favicon-192.png">
   {% endif %}
 
   <!-- twitter meta -->
@@ -73,17 +73,15 @@
   {% elsif page.icon %}
   <meta name="twitter:image" content="{{ page.icon | absolute_url }}">
   {% else %}
-  <meta name="twitter:image" content="https://static.opensuse.org/favicon-192.png">
+  <meta name="twitter:image" content="https://static.opensuse.org/chameleon-4.0/dist/images/favicon-192.png">
   {% endif %}
 
   <!-- javascript -->
   {% if site.jquery_full %}
   <script defer src="https://static.opensuse.org/chameleon-3.0/dist/js/jquery.js"></script>
-  {% else %}
-  <script defer src="https://static.opensuse.org/chameleon-3.0/dist/js/jquery.slim.js"></script>
   {% endif %}
-  <script defer src="https://static.opensuse.org/chameleon-3.0/dist/js/bootstrap.bundle.js"></script>
-  <script defer src="https://static.opensuse.org/chameleon-3.0/dist/js/chameleon.js"></script>
+  <script defer src="https://static.opensuse.org/chameleon-4.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="https://static.opensuse.org/chameleon-4.0/dist/js/chameleon.js"></script>
 
   {% if site.piwik_site_id %}
   <!-- Piwik -->

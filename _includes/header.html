@@ -1,181 +1,169 @@
 <nav class="navbar noprint {{ site.navbar_class | default: 'navbar-expand-md' }}">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{'/' | prefix_locale | relative_url }}">
+      <img src="https://static.opensuse.org/chameleon-4.0/dist/images/favicon.svg" class="d-inline-block align-top" alt="openSUSE" title="openSUSE"
+        width="30" height="30">
+      <span class="navbar-title">{{ locale.site_title_short | default: site.title_short }}</span>
+    </a>
 
-  <a class="navbar-brand" href="{{'/' | prefix_locale | relative_url }}">
-    <img src="https://static.opensuse.org/favicon.svg" class="d-inline-block align-top" alt="openSUSE" title="openSUSE"
-      width="30" height="30">
-    <span class="navbar-title">{{ locale.site_title_short | default: site.title_short }}</span>
-  </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+      <svg width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+          d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z">
+        </path>
+      </svg>
+    </button>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">
-    <svg width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd"
-        d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z">
-      </path>
-    </svg>
-  </button>
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav mr-auto flex-md-shrink-0">
+        {% for link in site.navbar_links %}
 
-  <div class="collapse navbar-collapse" id="navbar-collapse">
-    <ul class="nav navbar-nav mr-auto flex-md-shrink-0">
-      {% for link in site.navbar_links %}
-
-      {% if link == 'categories' %}
-      <!-- Categories Dropdown -->
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="cat-menu-link" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          <svg class="bi bi-newspaper" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd"
-              d="M0 2A1.5 1.5 0 0 1 1.5.5h11A1.5 1.5 0 0 1 14 2v12a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 0 14V2zm1.5-.5A.5.5 0 0 0 1 2v12a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V2a.5.5 0 0 0-.5-.5h-11z" />
-            <path fill-rule="evenodd"
-              d="M15.5 3a.5.5 0 0 1 .5.5V14a1.5 1.5 0 0 1-1.5 1.5h-3v-1h3a.5.5 0 0 0 .5-.5V3.5a.5.5 0 0 1 .5-.5z" />
-            <path
-              d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z" />
-          </svg>
-          {{ locale.categories }}
-        </a>
-        <div class="dropdown-menu" aria-labelledby="cat-menu-link">
-          {% for category in site.categories %}
-          {% capture category_name %}{{ category | first }}{% endcapture %}
-          <a class="dropdown-item" href="/category/{{ category_name | slugify }}">
-            {{ category_name }}
+        {% if link == 'categories' %}
+        <!-- Categories Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="cat-menu-link" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <svg class="bi bi-newspaper" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M0 2A1.5 1.5 0 0 1 1.5.5h11A1.5 1.5 0 0 1 14 2v12a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 0 14V2zm1.5-.5A.5.5 0 0 0 1 2v12a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V2a.5.5 0 0 0-.5-.5h-11z" />
+              <path fill-rule="evenodd"
+                d="M15.5 3a.5.5 0 0 1 .5.5V14a1.5 1.5 0 0 1-1.5 1.5h-3v-1h3a.5.5 0 0 0 .5-.5V3.5a.5.5 0 0 1 .5-.5z" />
+              <path
+                d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z" />
+            </svg>
+            {{ locale.categories }}
           </a>
-          {% endfor %}
-        </div>
-      </li>
+          <div class="dropdown-menu" aria-labelledby="cat-menu-link">
+            {% for category in site.categories %}
+            {% capture category_name %}{{ category | first }}{% endcapture %}
+            <a class="dropdown-item" href="/category/{{ category_name | slugify }}">
+              {{ category_name }}
+            </a>
+            {% endfor %}
+          </div>
+        </li>
 
-      {% elsif link == 'locales' %}
+        {% elsif link == 'locales' %}
 
-      <!-- Locales Dropdown -->
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="locale-menu-link" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          <svg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 512 512'>
-            <line x1='48' y1='112' x2='336' y2='112'
-              style='fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
-            <line x1='192' y1='64' x2='192' y2='112'
-              style='fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
-            <polyline points='272 448 368 224 464 448'
-              style='fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
-            <line x1='301.5' y1='384' x2='434.5' y2='384'
-              style='fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
-            <path d='M281.3,112S257,206,199,277,80,384,80,384'
-              style='fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
-            <path d='M256,336s-35-27-72-75-56-85-56-85'
-              style='fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
-          </svg>
-          {{ page.locale.name }}
-        </a>
-        <div class="dropdown-menu" aria-labelledby="cat-menu-link">
-          {% for ref in page.locale_siblings %}
-          <a class="dropdown-item" href="{{ ref.url | relative_url }}">
-            {{ ref.locale.name }}
+        <!-- Locales Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="locale-menu-link" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <svg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 512 512'>
+              <line x1='48' y1='112' x2='336' y2='112'
+                style='fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+              <line x1='192' y1='64' x2='192' y2='112'
+                style='fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+              <polyline points='272 448 368 224 464 448'
+                style='fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+              <line x1='301.5' y1='384' x2='434.5' y2='384'
+                style='fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+              <path d='M281.3,112S257,206,199,277,80,384,80,384'
+                style='fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+              <path d='M256,336s-35-27-72-75-56-85-56-85'
+                style='fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px' />
+            </svg>
+            {{ page.locale.name }}
           </a>
-          {% endfor %}
+          <div class="dropdown-menu" aria-labelledby="cat-menu-link">
+            {% for ref in page.locale_siblings %}
+            <a class="dropdown-item" href="{{ ref.url | relative_url }}">
+              {{ ref.locale.name }}
+            </a>
+            {% endfor %}
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{ site.weblate_url }}">
-            {{ locale.translate }}
+            <a class="dropdown-item" href="{{ site.weblate_url }}">
+              {{ locale.translate }}
+            </a>
+          </div>
+        </li>
+
+        {% elsif link.children %}
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            {{ link.icon }}
+            {{ locale[link.text] | default: link.text }}
           </a>
-        </div>
-      </li>
+          <div class="dropdown-menu">
+            {% for child in link.children %}
+            {% if child == 'divider' %}
+            <div class="dropdown-divider"></div>
+            {% else %}
+            <a class="dropdown-item" href="{{ child.link | prefix_locale | relative_url }}">
+              {{ child.icon }}
+              {{ locale[child.text] | default: child.text }}
+            </a>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </li>
 
-      {% elsif link.children %}
+        {% else %}
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
-          {{ link.icon }}
-          {{ locale[link.text] | default: link.text }}
-        </a>
-        <div class="dropdown-menu">
-          {% for child in link.children %}
-          {% if child == 'divider' %}
-          <div class="dropdown-divider"></div>
-          {% else %}
-          <a class="dropdown-item" href="{{ child.link | prefix_locale | relative_url }}">
-            {{ child.icon }}
-            {{ locale[child.text] | default: child.text }}
+        <li class="nav-item{%if link.link == page.url%} active{%endif%}">
+          <a class="nav-link" href="{{ link.link | prefix_locale | relative_url }}">
+            {{ link.icon }}
+            {{ locale[link.text] | default: link.text }}
           </a>
-          {% endif %}
-          {% endfor %}
+        </li>
+        {% endif %}
+
+        {% endfor %}
+      </ul>
+
+      {% if site.search_provider == 'github' %}
+      <!-- GitHub Search -->
+      <form class="form-inline mr-md-3" action="https://github.com/{{ site.search_github_repo }}/search">
+        <div class="input-group">
+          <input class="form-control" type="search" name="q" placeholder="{{ locale.search }}" lang="en">
+          <input type="hidden" name="l" value="Markdown">
+          <input type="hidden" name="s" value="indexed">
+          <div class="input-group-append">
+            <button class="btn btn-secondary" type="submit">
+              <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z">
+                </path>
+                <path fill-rule="evenodd"
+                  d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"></path>
+              </svg>
+            </button>
+          </div>
         </div>
-      </li>
-
-      {% else %}
-
-      <li class="nav-item{%if link.link == page.url%} active{%endif%}">
-        <a class="nav-link" href="{{ link.link | prefix_locale | relative_url }}">
-          {{ link.icon }}
-          {{ locale[link.text] | default: link.text }}
-        </a>
-      </li>
+      </form>
+      {% elsif site.search_provider == 'duckduckgo' %}
+      <!-- DuckDuckGo Search -->
+      <form id="ddg-form" class="form-inline mr-md-3" action="https://duckduckgo.com/">
+        <div class="input-group">
+          <input id="ddg-input" class="form-control" type="search" name="q" placeholder="{{ locale.search }}" lang="en">
+          <div class="input-group-append">
+            <button class="btn btn-secondary" type="submit">
+              <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z">
+                </path>
+                <path fill-rule="evenodd"
+                  d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"></path>
+              </svg>
+            </button>
+          </div>
+          <script>
+            const form = document.getElementById("ddg-form");
+            const input = document.getElementById("ddg-input");
+            form.addEventListener("submit", function (e) {
+              input.value += " site:{{site.search_site}}";
+            });
+          </script>
+        </div>
+      </form>
+      {% elsif site.search_provider == 'custom' %}
+        {% include custom_search.html %}
       {% endif %}
-
-      {% endfor %}
-    </ul>
-
-    {% if site.search_provider == 'github' %}
-    <!-- GitHub Search -->
-    <form class="form-inline mr-md-3" action="https://github.com/{{ site.search_github_repo }}/search">
-      <div class="input-group">
-        <input class="form-control" type="search" name="q" placeholder="{{ locale.search }}" lang="en">
-        <input type="hidden" name="l" value="Markdown">
-        <input type="hidden" name="s" value="indexed">
-        <div class="input-group-append">
-          <button class="btn btn-secondary" type="submit">
-            <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd"
-                d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z">
-              </path>
-              <path fill-rule="evenodd"
-                d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </form>
-    {% elsif site.search_provider == 'duckduckgo' %}
-    <!-- DuckDuckGo Search -->
-    <form id="ddg-form" class="form-inline mr-md-3" action="https://duckduckgo.com/">
-      <div class="input-group">
-        <input id="ddg-input" class="form-control" type="search" name="q" placeholder="{{ locale.search }}" lang="en">
-        <div class="input-group-append">
-          <button class="btn btn-secondary" type="submit">
-            <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd"
-                d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z">
-              </path>
-              <path fill-rule="evenodd"
-                d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"></path>
-            </svg>
-          </button>
-        </div>
-        <script>
-          const form = document.getElementById("ddg-form");
-          const input = document.getElementById("ddg-input");
-          form.addEventListener("submit", function (e) {
-            input.value += " site:{{site.search_site}}";
-          });
-        </script>
-      </div>
-    </form>
-    {% elsif site.search_provider == 'custom' %}
-      {% include custom_search.html %}
-    {% endif %}
+    </div>
   </div>
-
-  <button class="navbar-toggler megamenu-toggler" type="button" data-toggle="collapse" data-target="#megamenu"
-    aria-expanded="true">
-    <svg class="bi bi-grid" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-      xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd"
-        d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z">
-      </path>
-    </svg>
-  </button>
-
 </nav>
-
-<div id="megamenu" class="megamenu collapse"></div>
